@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Todo List</title>
+
+</head>
+
+<style>
+    .souligner {
+        text-decoration: underline;
+    }
+</style>
+
+
+
+
+
+<body>
+    <h1>Ma Todo List</h1>
+
+    <div id="todoList">
+        <input type="text" id="nouvelleTache" placeholder="Entrez une nouvelle tâche">
+        <button id="ajouterBouton">Add</button>
+        <ul id="listeTaches"></ul>
+    </div>
+
+    <script>
+
+        let nouvelleTacheInput = document.getElementById('nouvelleTache');
+        let ajouterBouton = document.getElementById('ajouterBouton');
+        let listeTaches = document.getElementById('listeTaches');
+
+
+        function ajouterTache() {
+            let texteNouvelleTache = nouvelleTacheInput.value;
+
+
+            let nouvelleTache = document.createElement('li');
+
+
+            nouvelleTache.textContent = texteNouvelleTache;
+            let boutonSupprimer = document.createElement('button');
+            boutonSupprimer.textContent = 'delete';
+            boutonSupprimer.addEventListener('click', function () {
+                listeTaches.removeChild(nouvelleTache);
+            });
+
+
+            nouvelleTache.appendChild(boutonSupprimer);
+            listeTaches.appendChild(nouvelleTache);
+
+
+
+
+            nouvelleTacheInput.value = '';
+
+
+
+        }
+
+
+
+
+
+        ajouterBouton.addEventListener('click', ajouterTache);
+
+
+    </script>
+</body>
+
+</html>
